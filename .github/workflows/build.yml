@@ -32,7 +32,7 @@ jobs:
       run: |
         ./mvnw clean package jib:build -DskipTests
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api
+        docker push ${{ secrets.DOCKER_USERNAME }}/kubernetes-masterclass
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
