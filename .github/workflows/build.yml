@@ -30,7 +30,7 @@ jobs:
     - if: ${{ github.ref == 'refs/heads/main' }}
       name: Build and Publish Docker Image
       run: |
-        ./mvnw clean package jib:build -DskipTests
+        ./mvnw clean package jib:dockerBuild -DskipTests
         echo ${{ secrets.DOCKER_USERNAME }}
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker push ${{ secrets.DOCKER_USERNAME }}/kubernetes-masterclass
