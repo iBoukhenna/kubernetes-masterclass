@@ -1,3 +1,4 @@
+import Bookmarks from "@/components/Bookmarks";
 import { fetchBookmarks } from "@/services/api";
 import { BookmarksResponse } from "@/services/models";
 import { GetServerSideProps } from "next";
@@ -9,7 +10,7 @@ export default function Home({bookmarks}: HomeProps) {
     return (
       <div>
           <h1>Bookmarks</h1>
-          { bookmarks.data.map(bookmark => <h2 key={bookmark.id}>{bookmark.title}</h2>) }
+          <Bookmarks bookmarks={bookmarks} />
       </div>
     )
 }
