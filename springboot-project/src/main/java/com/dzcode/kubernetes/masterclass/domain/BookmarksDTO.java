@@ -14,7 +14,7 @@ import lombok.Setter;
 public class BookmarksDTO {
     private List<BookmarkDTO> data;
     private long totalElements;
-    private int totalPage;
+    private int totalPages;
     private int currentPage;
     @JsonProperty("isFirst")
     private boolean isFirst;
@@ -26,8 +26,8 @@ public class BookmarksDTO {
     public BookmarksDTO(Page<BookmarkDTO> bookmarkPage) {
         this.setData(bookmarkPage.getContent());
         this.setTotalElements(bookmarkPage.getTotalElements());
-        this.setTotalPage(bookmarkPage.getTotalPages());
-        this.setCurrentPage(bookmarkPage.getNumber());
+        this.setTotalPages(bookmarkPage.getTotalPages());
+        this.setCurrentPage(bookmarkPage.getNumber() + 1);
         this.setFirst(bookmarkPage.isFirst());
         this.setLast(bookmarkPage.isLast());
         this.setHasNext(bookmarkPage.hasNext());

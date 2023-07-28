@@ -4,13 +4,13 @@ import { BookmarksResponse } from "@/services/models";
 import { GetServerSideProps } from "next";
 
 interface HomeProps {
-  bookmarks: BookmarksResponse;
+  bookmarks: BookmarksResponse
 }
-export default function Home({bookmarks}: HomeProps) {
+export default function Home(props: HomeProps) {
     return (
       <div>
           <h1>Bookmarks</h1>
-          <Bookmarks bookmarks={bookmarks} />
+          <Bookmarks bookmarks={props.bookmarks} />
       </div>
     )
 }

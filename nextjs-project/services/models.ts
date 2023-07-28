@@ -1,6 +1,7 @@
 export interface BookmarksResponse {
     data: Bookmark[],
     totalElements: number,
+    currentPage: number,
     pageNumber: number,
     totalPages: number,
     isFirst: boolean,
