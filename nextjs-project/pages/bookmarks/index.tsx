@@ -1,21 +1,25 @@
+import { fetchBookmarks } from "@/services/api";
+import { BookmarksResponse } from "@/services/models";
 import { GetServerSideProps } from "next";
 
 interface HomeProps {
-  titles: string[];
+  bookmarks: BookmarksResponse;
 }
-export default function Home({titles}: HomeProps) {
+export default function Home({bookmarks}: HomeProps) {
     return (
       <div>
           <h1>Bookmarks</h1>
-          { titles.map(title => <h2>{title}</h2>) }
+          { bookmarks.data.map(bookmark => <h2 key={bookmark.id}>{bookmark.title}</h2>) }
       </div>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { page = 1, query = "" } = context.query;
+  const bookmarks = await fetchBookmarks(parseInt(String(page)), String(query))
   return {
     props: { 
-      titles : ['1', '2', '3']
+      bookmarks
     }
   }
 }
