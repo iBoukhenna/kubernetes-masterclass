@@ -1,3 +1,4 @@
+import NavBar from '@/components/NavBar';
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from "next/head";
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>Bookmarks</title>
         </Head>
+        <NavBar />
         <main>
           <Component {...pageProps} />
         </main>
