@@ -8,7 +8,7 @@ interface BookmarkProps {
 
 const Bookmark: React.FC<BookmarkProps> = ({ bookmark }) => (
     <div>
-        <div className="bg-blue-500 text-white px-4 py-3 rounded-md shadow-md">
+        <div className="mt-4 bg-blue-500 text-white px-4 py-3 rounded-md shadow-md">
             <h5>
                 <Link href={bookmark.url} target="_blank" className="text-white text-decoration-none">
                     {bookmark.title}
