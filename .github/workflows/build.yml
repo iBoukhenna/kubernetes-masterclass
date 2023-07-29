@@ -33,7 +33,7 @@ jobs:
         ./mvnw clean package jib:dockerBuild -DskipTests
         echo ${{ secrets.DOCKER_USERNAME }}
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/kubernetes-masterclass-api
+        docker push ${{ secrets.DOCKER_USERNAME }}/kubernetes-masterclass
 
   build-bookmarker-ui:
     name: Build bookmarker-ui
