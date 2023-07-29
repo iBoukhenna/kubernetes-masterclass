@@ -20,3 +20,8 @@ kubectl scale deployment kubernetes-masterclass --replicas=3
 kubectl rollout history deployment kubernetes-masterclass
 
 kubectl apply -f .
+
+kubectl create configmap db-config --from-literal=db_host=postgres --from-literal=db_name=kubernetes-masterclass
+kubectl delete configmap db-config
+kubectl create configmap db-config --from-literal=db_host=postgres --from-literal=db_name=kubernetes-masterclass --dry-run=client -o yaml > configmap.yaml
+kubectl apply -f configmap.yaml
