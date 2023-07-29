@@ -76,11 +76,11 @@ public class BookmarkControllerTest {
         "1,15,2,0,true,false,true,false",
         "2,15,2,1,false,true,false,true"
     })
-    public void ShouldGetBookmarks(int pageNo, int totalElements, int totalPage, int currentPage, boolean isFirst, boolean isLast, boolean hasNext, boolean hasPrevious) throws Exception {
+    public void ShouldGetBookmarks(int pageNo, int totalElements, int totalPages, int currentPage, boolean isFirst, boolean isLast, boolean hasNext, boolean hasPrevious) throws Exception {
         mvc.perform(get("/api/bookmarks?page="+pageNo))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.totalElements", CoreMatchers.equalTo(totalElements)))
-                .andExpect(jsonPath("$.totalPage", CoreMatchers.equalTo(totalPage)))
+                .andExpect(jsonPath("$.totalPages", CoreMatchers.equalTo(totalPages)))
                 .andExpect(jsonPath("$.currentPage", CoreMatchers.equalTo(currentPage)))
                 .andExpect(jsonPath("$.isFirst", CoreMatchers.equalTo(isFirst)))
                 .andExpect(jsonPath("$.isLast", CoreMatchers.equalTo(isLast)))
