@@ -33,12 +33,12 @@ spec:
           - name: DB_USER
             valueFrom:
               configMapKeyRef:
-                name: kubernetes-masterclass-config
+                name: kubernetes-masterclass-secret
                 key: postgres_username
           - name: DB_PASSWORD
             valueFrom:
               configMapKeyRef:
-                name: kubernetes-masterclass-config
+                name: kubernetes-masterclass-secret
                 key: postgres_password
           - name: DB_DATABASE
             valueFrom:

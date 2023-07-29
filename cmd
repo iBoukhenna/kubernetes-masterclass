@@ -25,3 +25,6 @@ kubectl create configmap db-config --from-literal=db_host=postgres --from-litera
 kubectl delete configmap db-config
 kubectl create configmap db-config --from-literal=db_host=postgres --from-literal=db_name=kubernetes-masterclass --dry-run=client -o yaml > configmap.yaml
 kubectl apply -f configmap.yaml
+
+kubectl create secret generic kubernetes-masterclass-secret --from-literal=postgres_username=postgres --from-literal=postgres_password=postgres --dry-run=client -o yaml 
+kubectl delete secret kubernetes-masterclass-secret
