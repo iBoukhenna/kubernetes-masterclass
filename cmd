@@ -18,3 +18,5 @@ kubectl apply -f deployment.yaml
 kubectl delete -f deployment.yaml
 kubectl scale deployment kubernetes-masterclass --replicas=3
 kubectl rollout history deployment kubernetes-masterclass
+
+kubectl apply -f .
