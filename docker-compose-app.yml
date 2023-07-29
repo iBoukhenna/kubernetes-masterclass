@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   kubernetes-masterclass-api:
+    container_name: kubernetes-masterclass-api-container
     build:
       context: springboot-project
       dockerfile: Dockerfile.layered
@@ -15,3 +16,14 @@ services:
     restart: always
     depends_on:
       - kubernetes-masterclass-db
+
+  kubernetes-masterclass-ui:
+    container_name: kubernetes-masterclass-ui-container
+    build:
+      context: nextjs-project
+      dockerfile: Dockerfile
+    ports:
+      - "13000:3000"
+    environment:
+      SERVER_SIDE_API_BASE_URL: http://kubernetes-masterclass-api:8080
+      CLIENT_SIDE_API_BASE_URL: http://localhost:18080
