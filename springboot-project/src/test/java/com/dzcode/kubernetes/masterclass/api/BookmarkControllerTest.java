@@ -73,8 +73,8 @@ public class BookmarkControllerTest {
 
     @ParameterizedTest
     @CsvSource({
-        "1,15,3,0,true,false,true,false",
-        "2,15,3,1,false,true,false,true"
+        "1,15,2,1,true,false,true,false",
+        "2,15,2,2,false,true,false,true"
     })
     public void ShouldGetBookmarks(int pageNo, int totalElements, int totalPages, int currentPage, boolean isFirst, boolean isLast, boolean hasNext, boolean hasPrevious) throws Exception {
         mvc.perform(get("/api/bookmarks?page="+pageNo))
