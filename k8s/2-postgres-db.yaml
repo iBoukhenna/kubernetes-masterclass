@@ -57,12 +57,12 @@ spec:
           env:
             - name: POSTGRES_USER
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: kubernetes-masterclass-secret
                   key: postgres_username
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: kubernetes-masterclass-secret
                   key: postgres_password
             - name: POSTGRES_DB

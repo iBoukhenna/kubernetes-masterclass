@@ -47,12 +47,12 @@ spec:
                 key: postgres_port
           - name: DB_USER
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 name: kubernetes-masterclass-secret
                 key: postgres_username
           - name: DB_PASSWORD
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 name: kubernetes-masterclass-secret
                 key: postgres_password
           - name: DB_DATABASE
