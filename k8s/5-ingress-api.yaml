@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetes-masterclass-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - http:
+         paths:
+         - pathType: Prefix
+           path: /kubernetes-masterclass-api(/|$)(.*)
+           backend:
+             service:
+               name: kubernetes-masterclass-api-svc
+               port:
+                 number: 8080
